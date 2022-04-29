@@ -1,0 +1,50 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model MultiColDedupe1 {
+  id Int    @id @default(autoincrement())
+  a  String
+  b  String
+  c  String
+  d  String
+  e  String
+  f  String
+  g  String
+
+  @@unique([a])
+}
+
+model MultiColDedupe2 {
+  id Int    @id @default(autoincrement())
+  a  String
+  b  String
+  c  String
+  d  String
+  e  String
+  f  String
+  g  String
+
+  @@unique([a, b])
+}
+
+model MultiColDedupe3 {
+  id Int    @id @default(autoincrement())
+  a  String
+  b  String
+  c  String
+  d  String
+  e  String
+  f  String
+  g  String
+
+  @@unique([a, b, c, d, e])
+}
